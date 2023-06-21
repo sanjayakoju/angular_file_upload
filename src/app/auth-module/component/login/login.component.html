@@ -1,0 +1,28 @@
+<app-nav-bar></app-nav-bar>
+<div class="container">
+  <p>login works!</p>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" class="form-control" id="username" formControlName="username" name="username">
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" class="form-control" id="password" name="password" formControlName="password">
+    </div>
+
+    <div class="mb-3">
+      <button class="btn btn-primary">Login</button> &nbsp;
+      <a routerLink="/register">Not a User Register</a>
+    </div>
+  </form>
+
+  <div *ngIf="isLogin">
+    <h3>Login Success</h3>
+    <img src="{{ApiEndPoints.API_URL}}/{{user.username}}.jpg" width="300px" height="250px">
+  </div>
+
+</div>
+
